@@ -56,14 +56,15 @@ while curTime + curMeasure * MS_PER_MEASURE < Map.Length do
         end
 
         -- Translate position and rotation, respectively
-        Timeline.Add(Segment(rotateStartTime, rotateStartTime + TRANSITION_DURATION, Timeline.Tween(
-                Tween.Position(Stage.LaneContainer(i)),
-                POS[receptorIndex], POS[nextReceptorIndex]
-        )))
-        Timeline.Add(Segment(rotateStartTime, rotateStartTime + TRANSITION_DURATION, Timeline.Tween(
-                Tween.Rotation(Stage.LaneContainer(i)),
-                ANGLES[receptorIndex], ANGLES[nextReceptorIndex]
-        )))
+        
+        
+        
+        Timeline.Add(rotateStartTime, rotateStartTime + TRANSITION_DURATION, 
+                Stage.LaneContainer(i).PositionProp.Tween(POS[receptorIndex], POS[nextReceptorIndex])
+        )
+        Timeline.Add(rotateStartTime, rotateStartTime + TRANSITION_DURATION, 
+                Stage.LaneContainer(i).RotationProp.Tween(ANGLES[receptorIndex], ANGLES[nextReceptorIndex])
+        )
     end
     -- Next cycle
     for i = 1, 4 do
@@ -71,3 +72,7 @@ while curTime + curMeasure * MS_PER_MEASURE < Map.Length do
     end
     curMeasure = curMeasure + 1
 end
+
+-- Stage.PlayfieldContainer.CastToRenderTarget()
+-- Stage.PlayfieldContainer.DefaultProjectionSprite.SpriteBatchOptions = New.SpriteBatchOptions(New.MultiEffectShader())
+-- Stage.PlayfieldContainer.DefaultProjectionSprite.SpriteBatchOptions.Shader.SetParameter("p_greyscale_strength", 0.5)

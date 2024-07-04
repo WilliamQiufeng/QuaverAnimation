@@ -14,11 +14,10 @@ curTime = START_TIME
 curBeat = 0
 while curTime + curBeat * MS_PER_BEAT < Map.Length do
     rotateStartTime = curTime + curBeat * MS_PER_BEAT
-    Timeline.Add(Segment(rotateStartTime, rotateStartTime + ROTATION_DURATION, Timeline.Tween(
-            Tween.Rotation(Stage.PlayfieldContainer),
+    Timeline.Add(rotateStartTime, rotateStartTime + ROTATION_DURATION, Stage.PlayfieldContainer.RotationProp.Tween(
             ANGLE_CYCLE[curBeat % 4 + 1],
             ANGLE_CYCLE[(curBeat + 1) % 4 + 1],
             Easing.OutCirc
-    )))
+    ))
     curBeat = curBeat + 1
 end 

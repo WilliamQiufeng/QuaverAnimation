@@ -35,22 +35,19 @@ function onPress(args)
 
     -- Set tween segments to smoothly swap the X values of the two lanes
     -- local easingWrapper = Easing.InQuint
-    local easingWrapper = function(p) 
+    local easingWrapper = function(p)
         return p * p * p * p
     end
-    Timeline.Add(Segment(pressTime, pressTime + ANIMATION_DURATION,
-            Timeline.Tween(Tween.X(Stage.LaneContainer(lane)), LanePositions[lane][1], LanePositions[anotherLane][1], easingWrapper)))
-    Timeline.Add(Segment(
-            pressTime, pressTime + ANIMATION_DURATION,
-            Timeline.Tween(Tween.X(Stage.LaneContainer(anotherLane)), LanePositions[anotherLane][1], LanePositions[lane][1], easingWrapper)))
+    Timeline.Add(pressTime, pressTime + ANIMATION_DURATION,
+            Stage.LaneContainer(lane).XProp.TweenSwap(Stage.LaneContainer(anotherLane).XProp, easingWrapper))
 
     -- We want to mark the lanes 'unoccupied' after the animation finishes
-    Timeline.Add(Trigger(pressTime + ANIMATION_DURATION, 
+    Timeline.Add(pressTime + ANIMATION_DURATION,
             function(_)
                 LaneSwapOccupied[lane] = false
                 LaneSwapOccupied[anotherLane] = false
                 FreeLaneCount = FreeLaneCount + 2
-            end))
+            end)
 
     -- Swap the positions in cache
     tmp = LanePositions[lane]
