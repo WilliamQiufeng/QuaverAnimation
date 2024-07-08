@@ -73,6 +73,6 @@ while curTime + curMeasure * MS_PER_MEASURE < Map.Length do
     curMeasure = curMeasure + 1
 end
 
--- Stage.PlayfieldContainer.CastToRenderTarget()
--- Stage.PlayfieldContainer.DefaultProjectionSprite.SpriteBatchOptions = New.SpriteBatchOptions(New.MultiEffectShader())
--- Stage.PlayfieldContainer.DefaultProjectionSprite.SpriteBatchOptions.Shader.SetParameter("p_greyscale_strength", 0.5)
+--Stage.PlayfieldContainer.CastToRenderTarget()
+--Stage.PlayfieldContainer.DefaultProjectionSprite.SpriteBatchOptions = New.SpriteBatchOptions(New.MultiEffectShader())
+--Stage.PlayfieldContainer.DefaultProjectionSprite.SpriteBatchOptions.Shader.SetParameter("p_greyscale_strength", 0.5)

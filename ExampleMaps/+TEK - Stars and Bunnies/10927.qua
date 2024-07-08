@@ -1,6 +1,7 @@
 AudioFile: audio.mp3
 SongPreviewTime: 63973
 BackgroundFile: pixel art.jpg
+AnimationFile: layers.lua
 MapId: 10927
 MapSetId: 922
 Mode: Keys7
@@ -9,7 +10,7 @@ Artist: +TEK
 Source: ''
 Tags: Quaver, edm, chiptune
 Creator: yahweh
-DifficultyName: Normal
+DifficultyName: Layers
 Description: Created at 1588711892000
 EditorLayers: []
 CustomAudioSamples: []
