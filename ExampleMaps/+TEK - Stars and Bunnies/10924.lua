@@ -38,8 +38,8 @@ function onPress(args)
     local easingWrapper = function(p)
         return p * p * p * p
     end
-    Timeline.Add(pressTime, pressTime + ANIMATION_DURATION,
-            Stage.LaneContainer(lane).XProp.TweenSwap(Stage.LaneContainer(anotherLane).XProp, easingWrapper))
+
+    New.SwapLanePreset(lane, anotherLane).Ease(easingWrapper).Place(pressTime, pressTime + ANIMATION_DURATION)
 
     -- We want to mark the lanes 'unoccupied' after the animation finishes
     Timeline.Add(pressTime + ANIMATION_DURATION,

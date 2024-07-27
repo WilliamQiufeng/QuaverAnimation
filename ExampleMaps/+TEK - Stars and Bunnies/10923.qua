@@ -13,7 +13,11 @@ Creator: yahweh
 DifficultyName: Chaos
 Description: Created at 1588007638000
 EditorLayers: []
-CustomAudioSamples: []
+CustomAudioSamples:
+- Path: a.wav
+- Path: b.wav
+- Path: c.wav
+- Path: d.wav
 SoundEffects: []
 TimingPoints:
 - StartTime: -26

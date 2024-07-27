@@ -1,6 +1,6 @@
 pos = Stage.GetLanePositions()[1]
 Timeline.Add(10000, 11500,
-        Stage.LaneContainer(1).PositionProp.Keyframes(
+        Stage.Lanes[1].PositionProp.Keyframes(
                 {
                     { 0, { pos[1], pos[2] } },
                     { 500, { pos[1] + 100, pos[2] - 100 } },
@@ -13,7 +13,7 @@ Timeline.Add(10000, 11500,
 
 r2x = Stage.GetLanePositions()[2][1]
 Timeline.Add(10000, 11500,
-        Stage.LaneContainer(2).XProp.Keyframes(
+        Stage.Lanes[2].XProp.Keyframes(
                 {
                     { 0, r2x },
                     { 500, r2x + 100 },
